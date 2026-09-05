@@ -31,7 +31,7 @@ const Chapter = ({ c, index }) => {
           className="w-full flex items-center justify-between gap-6 text-left"
         >
           <div className="flex items-center gap-5 md:gap-8 min-w-0">
-            <div className="w-20 h-20 md:w-28 md:h-28 shrink-0 rounded-2xl overflow-hidden border border-line bg-panel">
+            <div className="w-28 md:w-40 aspect-[3/2] shrink-0 rounded-2xl overflow-hidden border border-line bg-panel">
               <img src={COVERS[c.viz]} alt={c.title} className="w-full h-full object-cover" />
             </div>
             <div className="min-w-0">
