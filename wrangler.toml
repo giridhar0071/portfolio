@@ -10,7 +10,7 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "giridhar-portfolio-testimonials"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "42675add-14dd-445b-a375-ad0235bf5cac"
 migrations_dir = "schema/migrations"
 
 # ADMIN_SECRET: for local dev, copy .dev.vars.example to .dev.vars and set it
