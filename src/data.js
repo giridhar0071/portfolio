@@ -7,7 +7,7 @@
 export const PROFILE = {
   name: "Sai Giridhar Bandla",
   short: "Giridhar",
-  role: "Software Engineer",
+  role: "Agentic AI Engineer",
   status: "Open to software engineering roles · Texas, USA",
   tagline: ["Once the ", "why", " clicks, the ", "how", " takes care of itself."],
   blurb:
@@ -30,10 +30,10 @@ export const STATS = [
 
 export const ABOUT = {
   facts: [
-    { k: "Now", v: "Software Developer · Confido Tek" },
+    { k: "Current role", v: "Agentic AI Engineer · Hexaware" },
     { k: "Roots", v: "Hyderabad → Chennai → Texas" },
-    { k: "Focus", v: "Backend & distributed systems" },
-    { k: "Curious about", v: "AI · Automation · Networking · Cloud" },
+    { k: "Focus", v: "Generative AI · Agentic AI · Backend Systems · Secure Software" },
+    { k: "Curious about", v: "AI Agents · Intelligent Automation · Networking · Cloud · Cybersecurity" },
     { k: "Writes at", v: "hashnode.com/@giridhar007" },
   ],
   paragraphs: [
@@ -135,6 +135,11 @@ export const EXPERTISE = [
 ];
 
 export const TIMELINE = [
+  {
+    when: "Jul 2026 to Now", where: "Texas, USA", chip: "Full-time",
+    role: "Agentic AI Engineer", org: "Hexaware",
+    pts: []
+  },
   {
     when: "Aug 2025 to Now", where: "Irving, TX", chip: "Full-time",
     role: "Software Developer", org: "Confido Tek Inc",
