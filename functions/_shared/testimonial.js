@@ -24,8 +24,9 @@ export function validateSubmission(body) {
   return { valid: errors.length === 0, errors };
 }
 
-// Single-owner Basic Auth: username is ignored, only the password is checked
-// against the ADMIN_SECRET Pages environment variable.
+// Single-owner Basic Auth: only one secret exists, so accept it in either the
+// username or password slot — browsers' native Basic Auth popup makes it easy
+// to put it in the wrong field, and there's no separate identity to check.
 export async function requireAdminAuth(request, env) {
   const auth = request.headers.get('Authorization') || '';
   if (!auth.startsWith('Basic ')) return false;
@@ -38,8 +39,9 @@ export async function requireAdminAuth(request, env) {
     return false;
   }
   const sepIndex = decoded.indexOf(':');
+  const username = sepIndex === -1 ? '' : decoded.slice(0, sepIndex);
   const password = sepIndex === -1 ? decoded : decoded.slice(sepIndex + 1);
-  return password === env.ADMIN_SECRET;
+  return password === env.ADMIN_SECRET || username === env.ADMIN_SECRET;
 }
 
 export function unauthorizedResponse() {
