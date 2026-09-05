@@ -11,9 +11,11 @@ export function validateSubmission(body) {
   const errors = [];
   if (!body || typeof body !== 'object') return { valid: false, errors: ['invalid body'] };
 
-  const { name, role, profile_url, quote } = body;
+  const { name, role, company, relationship, profile_url, quote } = body;
   if (!name || typeof name !== 'string' || !name.trim()) errors.push('name is required');
   if (!role || typeof role !== 'string' || !role.trim()) errors.push('role is required');
+  if (!company || typeof company !== 'string' || !company.trim()) errors.push('company is required');
+  if (!relationship || typeof relationship !== 'string' || !relationship.trim()) errors.push('relationship is required');
   if (!quote || typeof quote !== 'string' || !quote.trim()) errors.push('quote is required');
   if (!profile_url || typeof profile_url !== 'string' || !isValidProfileUrl(profile_url)) {
     errors.push('profile_url must be a valid http(s) URL');

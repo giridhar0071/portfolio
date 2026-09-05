@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function getTokenFromLocation() {
   const params = new URLSearchParams(window.location.search);
@@ -17,11 +17,33 @@ function isValidHttpUrl(value) {
 const initialForm = { name: '', role: '', company: '', relationship: '', profile_url: '', quote: '' };
 
 const SubmitForm = () => {
-  const [token] = useState(getTokenFromLocation);
+  const [token, setToken] = useState(getTokenFromLocation);
+  const [tokenLoading, setTokenLoading] = useState(!getTokenFromLocation());
   const [form, setForm] = useState(initialForm);
   const [fieldErrors, setFieldErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [serverError, setServerError] = useState('');
+
+  // No token in the URL (public "Leave a testimonial" button) — self-issue one.
+  useEffect(() => {
+    if (token) return;
+    let cancelled = false;
+    fetch('/api/testimonials/request', { method: 'POST' })
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => {
+        if (!cancelled && data.token) setToken(data.token);
+      })
+      .catch(() => {
+        if (!cancelled) setServerError('Could not start a new submission — please try again.');
+      })
+      .finally(() => {
+        if (!cancelled) setTokenLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -29,6 +51,8 @@ const SubmitForm = () => {
     const errors = {};
     if (!form.name.trim()) errors.name = 'Required';
     if (!form.role.trim()) errors.role = 'Required';
+    if (!form.company.trim()) errors.company = 'Required';
+    if (!form.relationship.trim()) errors.relationship = 'Required';
     if (!form.quote.trim()) errors.quote = 'Required';
     if (!form.profile_url.trim()) errors.profile_url = 'Required';
     else if (!isValidHttpUrl(form.profile_url.trim())) errors.profile_url = 'Must be a full link, e.g. https://linkedin.com/in/you';
@@ -72,10 +96,18 @@ const SubmitForm = () => {
     }
   };
 
+  if (!token && tokenLoading) {
+    return (
+      <Shell>
+        <p className="text-ink-dim">Loading…</p>
+      </Shell>
+    );
+  }
+
   if (!token) {
     return (
       <Shell>
-        <p className="text-ink-dim">This link is missing its token. Please ask for a fresh link.</p>
+        <p className="text-ink-dim">{serverError || 'Could not start a submission — please refresh and try again.'}</p>
       </Shell>
     );
   }
@@ -101,10 +133,10 @@ const SubmitForm = () => {
         <Field label="Role" error={fieldErrors.role}>
           <input value={form.role} onChange={update('role')} className={inputClass} placeholder="Engineering Manager" />
         </Field>
-        <Field label="Company (optional)">
+        <Field label="Company" error={fieldErrors.company}>
           <input value={form.company} onChange={update('company')} className={inputClass} placeholder="Acme Corp" />
         </Field>
-        <Field label="How do you know Giridhar? (optional)">
+        <Field label="How do you know Giridhar?" error={fieldErrors.relationship}>
           <input value={form.relationship} onChange={update('relationship')} className={inputClass} placeholder="Worked together at..." />
         </Field>
         <Field label="Link to your LinkedIn or GitHub profile" error={fieldErrors.profile_url}>

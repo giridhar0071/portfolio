@@ -47,7 +47,7 @@ const Hero = () => {
           ref={videoRef}
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
           className="w-full h-full object-cover lg:object-cover"
         >

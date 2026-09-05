@@ -62,9 +62,16 @@ const Testimonials = () => {
       <div className="max-w-6xl mx-auto">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp} className="mb-12 max-w-2xl">
           <span className="eyebrow text-xs font-bold tracking-[0.25em] uppercase text-accent-2">In their words</span>
-          <h2 className="text-4xl md:text-6xl font-black text-ink mt-4 leading-[1.05] tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-black text-ink mt-4 leading-[1.05] tracking-tight mb-6">
             What people say <span className="font-serif italic text-accent-2">working with me</span>.
           </h2>
+          <a
+            href="/submit"
+            data-cursor="link"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-semibold hover:bg-accent-2 transition-colors duration-300"
+          >
+            Leave a testimonial
+          </a>
         </motion.div>
 
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp} className="mb-6">
