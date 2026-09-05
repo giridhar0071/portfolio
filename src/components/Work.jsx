@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CASES } from '../data';
 import { VIZ } from '../viz';
 import loanCover from '../assets/projects/loan.png';
@@ -10,9 +10,6 @@ import { fadeUp, viewport } from '../motion';
 const COVERS = { loan: loanCover, securenote: securenoteCover, ewallet: ewalletCover };
 
 const Chapter = ({ c, index }) => {
-  const imgRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
   const [open, setOpen] = useState(false);
 
   return (
@@ -39,12 +36,15 @@ const Chapter = ({ c, index }) => {
               <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight truncate">{c.title}</h3>
             </div>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="font-mono text-ink-dim text-sm">{c.year}</span>
-            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" className="text-accent-2"
-              style={{ transition: 'transform 250ms ease', transform: open ? 'rotate(180deg)' : 'none' }}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-            </svg>
+          <div className="flex items-center gap-4 shrink-0">
+            <span className="font-mono text-ink-dim text-sm hidden sm:inline">{c.year}</span>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-line text-ink text-xs font-bold uppercase tracking-widest hover:border-accent-2/40 hover:text-accent-2 transition-colors">
+              {open ? 'Close' : 'Open'}
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"
+                style={{ transition: 'transform 250ms ease', transform: open ? 'rotate(180deg)' : 'none' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
           </div>
         </motion.button>
 
@@ -60,14 +60,12 @@ const Chapter = ({ c, index }) => {
               <div className="pt-10 md:pt-14">
                 {/* Cover image with parallax + intro */}
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-14">
-                  <div ref={imgRef} data-cursor="view" className="relative rounded-3xl overflow-hidden border border-line bg-panel min-h-[260px] md:min-h-[380px]">
-                    <motion.img
-                      style={{ y }}
+                  <div data-cursor="view" className="relative rounded-3xl overflow-hidden border border-line bg-panel aspect-[3/2]">
+                    <img
                       src={COVERS[c.viz]}
                       alt={c.title}
-                      className="absolute inset-0 w-full h-[120%] -top-[10%] object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </div>
 
                   <div>

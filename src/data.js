@@ -15,7 +15,7 @@ export const PROFILE = {
   email: "giridhar.devpro@gmail.com",
   hashnode: "https://hashnode.com/@giridhar007",
   github: "https://github.com/",      // TODO: add your GitHub URL
-  linkedin: "https://www.linkedin.com/", // TODO: add your LinkedIn URL
+  linkedin: "https://www.linkedin.com/in/sai-giridhar-bandla-89b707418/",
   location: "Texas, USA",
   education: "M.S. Computer Science, UT Arlington",
   cert: "AWS Certified Developer",
