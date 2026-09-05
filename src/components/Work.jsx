@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { CASES } from '../data';
 import { VIZ } from '../viz';
 import loanCover from '../assets/projects/loan.png';
@@ -13,6 +13,7 @@ const Chapter = ({ c, index }) => {
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+  const [showArch, setShowArch] = useState(false);
 
   return (
     <article className="border-b border-line last:border-b-0">
@@ -56,12 +57,36 @@ const Chapter = ({ c, index }) => {
           </motion.div>
         </div>
 
-        {/* Architecture diagram panel */}
+        {/* Architecture diagram panel — collapsed until clicked */}
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={fadeIn} className="mb-10 md:mb-14">
-          <h4 className="eyebrow text-[11px] uppercase tracking-widest text-accent-2 font-bold mb-3">Architecture</h4>
-          <div className="rounded-3xl bg-[#0a0a0a] border border-white/10 p-6 md:p-10 flex items-center justify-center">
-            <div className="viz-host w-full h-[240px] md:h-[320px]" dangerouslySetInnerHTML={{ __html: VIZ[c.viz] || '' }} />
-          </div>
+          <button
+            type="button"
+            data-cursor="link"
+            onClick={() => setShowArch((v) => !v)}
+            aria-expanded={showArch}
+            className="inline-flex items-center gap-2 eyebrow text-[11px] uppercase tracking-widest text-accent-2 font-bold mb-3"
+          >
+            {showArch ? 'Hide architecture' : 'View architecture'}
+            <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"
+              style={{ transition: 'transform 250ms ease', transform: showArch ? 'rotate(180deg)' : 'none' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <AnimatePresence initial={false}>
+            {showArch && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="rounded-3xl bg-[#0a0a0a] border border-white/10 p-6 md:p-10 flex items-center justify-center">
+                  <div className="viz-host w-full h-[240px] md:h-[320px]" dangerouslySetInnerHTML={{ __html: VIZ[c.viz] || '' }} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         {/* Problem / approach / decisions / metrics */}

@@ -103,6 +103,35 @@ const Testimonials = () => {
           ))}
         </motion.div>
 
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp} className="mt-16 mb-6">
+          <h3 className="text-lg font-bold text-ink">From LinkedIn</h3>
+          <p className="text-ink-dim mt-1 text-sm leading-relaxed max-w-xl">
+            A couple of recommendations, straight from LinkedIn.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          variants={stagger(0.1)}
+          className="grid md:grid-cols-2 gap-6"
+        >
+          {['linkedin-1.png', 'linkedin-2.png'].map((src) => (
+            <motion.a
+              key={src}
+              href={`/testimonials/${src}`}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="view"
+              variants={fadeUp}
+              className="block rounded-3xl border border-line bg-panel overflow-hidden hover:shadow-[0_20px_50px_-16px_rgba(177,18,16,0.25)] hover:-translate-y-1 hover:border-accent-2/30 transition-all duration-300"
+            >
+              <img src={`/testimonials/${src}`} alt="LinkedIn recommendation" className="w-full h-auto block" />
+            </motion.a>
+          ))}
+        </motion.div>
+
         <VerifiedTestimonials />
       </div>
     </section>
