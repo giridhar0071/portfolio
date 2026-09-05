@@ -28,7 +28,6 @@ const Writing = () => {
         >
           {POSTS.map((p) => (
             <motion.a key={p.t} href={PROFILE.hashnode} target="_blank" rel="noreferrer" data-cursor="link" variants={fadeUp} className="group flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-7 hover:px-2 transition-all duration-300">
-              <span className="text-xs font-mono text-ink-dim md:w-24 shrink-0">{p.date}</span>
               <div className="flex-1">
                 <h3 className="text-lg md:text-xl font-bold text-ink group-hover:text-accent-2 transition-colors">{p.t}</h3>
                 <p className="text-ink-dim text-sm mt-1 leading-relaxed">{p.e}</p>

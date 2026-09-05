@@ -191,9 +191,9 @@ export const NOW = [
 ];
 
 export const POSTS = [
-  { date: "MAR 2025", t: "Designing event-driven microservices with Kafka & Spring Boot", e: "How I broke a monolith into separate services behind a Kafka event bus, and what running it in production taught me." },
-  { date: "FEB 2025", t: "JWT, OAuth2 & Spring Security without the pain", e: "A practical guide to securing REST APIs: handing out tokens, refreshing them, role-based access, and the gotchas." },
-  { date: "JAN 2025", t: "From PostgreSQL to performance: indexing out of slow queries", e: "Real query-tuning notes from a financial app: indexes, locking, and the JPA traps that bite." }
+  { t: "I Had to Pick a Deployment Platform for Our Startup. Here's What Actually Happened.", e: "A simple platform comparison became a deeper lesson in trade-offs, deployment constraints, and what actually matters when a startup has to choose its infrastructure." },
+  { t: "I Built a Second Brain for Claude: It Took Me All Night, 5 Errors, and One 2:30 AM Breakthrough.", e: "A late-night build log about creating an MCP-powered second brain for Claude, debugging the setup, and understanding how AI tools can retain and use context." },
+  { t: "AI Predicts the Next Word. But Why? What? And How?", e: "A first-principles look at how next-token prediction becomes writing, reasoning-like behavior, and useful generative AI experiences." }
 ];
 
 export const QUOTES = [
