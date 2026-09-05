@@ -28,15 +28,18 @@ const Chapter = ({ c, index }) => {
           whileInView="show"
           viewport={viewport}
           variants={fadeUp}
-          className="w-full flex items-end justify-between gap-6 text-left"
+          className="w-full flex items-center justify-between gap-6 text-left"
         >
-          <div>
-            <span className="font-display text-[#1f1d1c] text-[14vw] md:text-[8rem] leading-none block -mb-4 md:-mb-8 select-none" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.08)', color: 'transparent' }}>
-              {c.num}
-            </span>
-            <h3 className="text-3xl md:text-5xl font-bold text-ink leading-tight max-w-xl">{c.title}</h3>
+          <div className="flex items-center gap-5 md:gap-8 min-w-0">
+            <div className="w-20 h-20 md:w-28 md:h-28 shrink-0 rounded-2xl overflow-hidden border border-line bg-panel">
+              <img src={COVERS[c.viz]} alt={c.title} className="w-full h-full object-cover" />
+            </div>
+            <div className="min-w-0">
+              <span className="font-mono text-ink-dim text-xs uppercase tracking-widest">{c.num}</span>
+              <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight truncate">{c.title}</h3>
+            </div>
           </div>
-          <div className="flex items-center gap-3 shrink-0 mb-1">
+          <div className="flex items-center gap-3 shrink-0">
             <span className="font-mono text-ink-dim text-sm">{c.year}</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" className="text-accent-2"
               style={{ transition: 'transform 250ms ease', transform: open ? 'rotate(180deg)' : 'none' }}>
