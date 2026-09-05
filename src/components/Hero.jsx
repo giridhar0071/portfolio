@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import heroVideo from '../assets/hero-video/hero-reel.mp4';
-import { PROFILE } from '../data';
 import MagneticButton from './MagneticButton';
 import { stagger, fadeUp } from '../motion';
 
@@ -89,7 +88,7 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
               >
-                {PROFILE.role} · Open to roles
+                Building agents, APIs, and intelligent workflows
               </motion.span>
             </div>
 
@@ -105,7 +104,7 @@ const Hero = () => {
               transition={{ duration: 0.7, ease: 'easeOut', delay: 0.55 }}
               className="text-[#9a958f] text-base leading-relaxed max-w-md mb-7 lg:text-white/75 lg:max-w-lg"
             >
-              I build secure, event-driven backends — and the clean screens on top of them. Spring Boot, Kafka and AWS, explained in plain words.
+              I build agentic AI systems, reliable backend services, and intelligent workflows—turning complex business problems into software that can understand context, take action, and stay dependable.
             </motion.p>
 
             <motion.div
