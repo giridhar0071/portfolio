@@ -136,18 +136,26 @@ export const EXPERTISE = [
 
 export const TIMELINE = [
   {
-    when: "Jul 2026 to Now", where: "Texas, USA", chip: "Full-time",
+    when: "Jul 2026 to Now", where: "Remote", chip: "Full-time",
     role: "Agentic AI Engineer", org: "Hexaware",
-    pts: []
+    pts: [
+      "Built agentic AI systems for medical-device quality workflows, connecting complaints, CAPAs, risk records, clinical evidence, and QMS documentation into one traceable working context.",
+      "Designed specialized AI agents that retrieve evidence, analyze quality events, identify missing information, and prepare structured outputs for quality and regulatory review.",
+      "Engineered the backend layer behind the agents, including Python services, APIs, workflow orchestration, enterprise integrations, controlled tool access, and stateful processing.",
+      "Applied RAG, grounding, output validation, and human review checkpoints so AI-generated work remains connected to trusted source information.",
+      "Supported critical lifecycle workflows across post-market surveillance, complaint handling, CAPA investigations, risk management, CER preparation, and QMS operations."
+    ]
   },
   {
-    when: "Aug 2025 to Now", where: "Irving, TX", chip: "Full-time",
-    role: "Software Developer", org: "Confido Tek Inc",
+    when: "Aug 2025 to Jun 2026", where: "Tampa, FL", chip: "Full-time",
+    role: "Agentic AI & Backend Engineer", org: "Fast Flyrr",
     pts: [
-      "Built features across the Loan Eligibility and Management System, using Spring Boot microservices and Angular.",
-      "Built and tuned REST APIs with Spring Boot and JPA, cutting response time on the busiest endpoints by about 25%.",
-      "Designed a Kafka event pipeline for loan-lifecycle events, with CloudWatch for monitoring.",
-      "Packaged services in Docker and shipped them to AWS (EC2, RDS, S3) through Jenkins CI/CD, working in Agile Scrum."
+      "Built Pleros, an end-to-end ERP and distribution platform that connects inventory, orders, warehouse operations, purchasing, CRM, dispatch, compliance, finance, POS, B2B commerce, and mobile field workflows.",
+      "Engineered the backend workflow that moves an order from checkout to allocation, picking, shipment, invoicing, payment, returns, credit memos, COGS, and general-ledger posting.",
+      "Developed the B2B buyer portal with catalog search, contract and volume pricing, cart and checkout, quotes, invoices, payment handling, account management, and reorder capabilities.",
+      "Built warehouse and mobile PWA operations for pick and pack, receiving, wave picking, bin-directed fulfillment, lot and serial tracking, putaway, backorders, delivery routes, and proof of delivery.",
+      "Created Celestial, an embedded AI copilot that combines RAG, live ERP data tools, intent detection, role-scoped access, streaming answers, conversation persistence, and feature-gated AI capabilities.",
+      "Designed the platform as a modular React, Vite, Express, Prisma, and REST API monorepo with tenant-aware data access, RBAC, audit logs, feature flags, webhooks, notifications, Stripe payments, EDI support, and a PostgreSQL production path."
     ]
   },
   {
