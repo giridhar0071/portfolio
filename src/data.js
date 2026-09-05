@@ -14,7 +14,7 @@ export const PROFILE = {
     "I'm Giridhar, a software engineer. I build backends that stay secure and keep working under load, plus the clean screens that sit on top of them. Then I like to break down how it all actually works, in plain words. Most days I'm in Java, Spring Boot and AWS, and lately I keep getting pulled toward AI, automation, networking and cloud.",
   email: "giridhar.devpro@gmail.com",
   hashnode: "https://hashnode.com/@giridhar007",
-  github: "https://github.com/",      // TODO: add your GitHub URL
+  github: "https://github.com/giridhar0071",
   linkedin: "https://www.linkedin.com/in/sai-giridhar-bandla-89b707418/",
   location: "Texas, USA",
   education: "M.S. Computer Science, UT Arlington",

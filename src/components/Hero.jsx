@@ -104,7 +104,7 @@ const Hero = () => {
               transition={{ duration: 0.7, ease: 'easeOut', delay: 0.55 }}
               className="text-[#9a958f] text-base leading-relaxed max-w-md mb-7 lg:text-white/75 lg:max-w-lg"
             >
-              I build agentic AI systems, reliable backend services, and intelligent workflows—turning complex business problems into software that can understand context, take action, and stay dependable.
+              Early in my career and already shipping agentic AI systems, reliable backend services, and intelligent workflows—turning complex business problems into software that can understand context, take action, and stay dependable.
             </motion.p>
 
             <motion.div
