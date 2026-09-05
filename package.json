@@ -1,0 +1,27 @@
+{
+  "name": "giridhar-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "pages:dev": "npm run build && wrangler pages dev dist",
+    "db:create": "wrangler d1 create giridhar-portfolio-testimonials",
+    "db:migrate:local": "wrangler d1 migrations apply giridhar-portfolio-testimonials --local",
+    "db:migrate:remote": "wrangler d1 migrations apply giridhar-portfolio-testimonials --remote"
+  },
+  "dependencies": {
+    "framer-motion": "^11.15.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.7",
+    "wrangler": "^4.129.0"
+  }
+}

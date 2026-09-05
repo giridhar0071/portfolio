@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Light editorial theme — off-white/beige surfaces, near-black
+   ink, deep cinematic red accent. The hero stays dark (video).
+   Re-theme by editing --color-accent.
+   ============================================================ */
+@theme {
+  --color-accent: #b11210;      /* deep cinematic red */
+  --color-accent-2: #b11210;    /* same red everywhere for highlights / italics / glow */
+  --color-accent-soft: rgba(177, 18, 16, 0.16);
+
+  --color-ink: #14110f;         /* primary text on light */
+  --color-ink-dim: #52525b;     /* muted text on light */
+  --color-panel: #ffffff;       /* raised panel surface (cards) */
+  --color-panel-2: #f6f5f3;     /* alternate section / secondary panel */
+  --color-line: rgba(0, 0, 0, 0.08);   /* hairline border */
+  --color-line-2: rgba(0, 0, 0, 0.14); /* stronger hairline */
+
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+/* Surfaces: page #ffffff · alt section #f6f5f3 · ink #14110f · hero stays #0a0a0a */
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: var(--color-ink);
+  font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide native cursor on fine-pointer devices once custom cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+}
+
+.font-display { font-family: "Anton", "Arial Black", sans-serif; letter-spacing: -0.02em; }
+.font-hand { font-family: "Caveat", cursive; }
+
+::selection { background: #b11210; color: #fff; }
+
+/* Cinematic film grain overlay (for the hero reel + dark sections) */
+.grain-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.10; mix-blend-mode: overlay;
+}
+
+.grain-overlay-soft {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045; mix-blend-mode: overlay;
+}
+
+/* Premium eyebrow with a short red leading rule */
+.eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: #b11210; display: inline-block; }
+
+.viz-host { position: relative; }
+.viz-host svg { display: block; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #ffffff; }
+::-webkit-scrollbar-thumb { background: #e2e0db; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #b11210; }

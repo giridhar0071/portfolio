@@ -1,0 +1,18 @@
+name = "giridhar-portfolio"
+compatibility_date = "2025-07-18"
+pages_build_output_dir = "dist"
+
+# Set the real database_id after running:
+#   npx wrangler d1 create giridhar-portfolio-testimonials
+# then apply the schema:
+#   npx wrangler d1 migrations apply giridhar-portfolio-testimonials --local   (local dev)
+#   npx wrangler d1 migrations apply giridhar-portfolio-testimonials --remote  (production)
+[[d1_databases]]
+binding = "DB"
+database_name = "giridhar-portfolio-testimonials"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "schema/migrations"
+
+# ADMIN_SECRET: for local dev, copy .dev.vars.example to .dev.vars and set it
+# there (gitignored, never committed). For production, set it as a Cloudflare
+# Pages secret via the dashboard or `wrangler pages secret put ADMIN_SECRET`.
