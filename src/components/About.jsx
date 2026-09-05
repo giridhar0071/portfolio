@@ -81,7 +81,15 @@ const About = () => {
             {ABOUT.facts.map((f) => (
               <motion.div key={f.k} variants={fadeUp} className="flex flex-col border-t border-line pt-2">
                 <dt className="text-[11px] uppercase tracking-wider text-ink-dim font-bold">{f.k}</dt>
-                <dd className="text-sm text-ink font-semibold">{f.v}</dd>
+                <dd className="text-sm text-ink font-semibold">
+                  {f.k === 'Writes at' ? (
+                    <a href={PROFILE.hashnode} target="_blank" rel="noreferrer" data-cursor="link" className="hover:text-accent-2 transition-colors underline underline-offset-4 decoration-1">
+                      {f.v}
+                    </a>
+                  ) : (
+                    f.v
+                  )}
+                </dd>
               </motion.div>
             ))}
           </motion.dl>

@@ -126,12 +126,12 @@ export const PRINCIPLES = [
 ];
 
 export const EXPERTISE = [
-  { cat: "Languages", items: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "Bash"] },
-  { cat: "Backend", items: ["Spring Boot", "Spring Security", "JPA / Hibernate", "Node.js", "Express", "REST", "Microservices"] },
-  { cat: "Frontend", items: ["Angular", "React", "RxJS", "Reactive Forms", "Tailwind"] },
-  { cat: "Data & Messaging", items: ["PostgreSQL", "MySQL", "Oracle", "MongoDB", "Redis", "Apache Kafka"] },
-  { cat: "Cloud & DevOps", items: ["AWS EC2 / RDS / S3", "IAM", "CloudWatch", "Docker", "Kubernetes", "Jenkins", "CI/CD"] },
-  { cat: "Security & Testing", items: ["OAuth2", "JWT", "JUnit", "Mockito", "Pytest", "Postman", "Swagger"] }
+  { cat: "Languages", items: ["Python", "TypeScript", "JavaScript", "Java", "SQL", "Bash"] },
+  { cat: "Agentic AI & GenAI", items: ["Agentic AI", "LLMs", "SLMs", "Multi-Agent Systems", "RAG", "Tool Calling", "Prompt Engineering", "Context Engineering", "AI Workflows", "Guardrails"] },
+  { cat: "Backend & APIs", items: ["FastAPI", "Express", "Node.js", "REST APIs", "API Integration", "Workflow Orchestration", "Event-Driven Systems", "Microservices", "Webhooks", "SSE"] },
+  { cat: "Frontend & Product", items: ["React", "Vite", "TanStack Query", "Zustand", "Tailwind CSS", "React Router", "Progressive Web Apps", "Responsive UI"] },
+  { cat: "Data & Retrieval", items: ["PostgreSQL", "SQLite", "Prisma", "Redis", "Vector Search", "Embeddings", "Document Intelligence", "Data Modeling", "Audit Logs"] },
+  { cat: "Cloud, Security & Delivery", items: ["Docker", "AWS", "CI/CD", "OAuth 2.0", "JWT", "RBAC", "Feature Flags", "API Security", "Observability", "Testing", "Postman"] }
 ];
 
 export const TIMELINE = [
