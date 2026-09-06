@@ -78,8 +78,8 @@ const Hero = () => {
       {/* Content:
           - mobile: below the video on dark
           - desktop: absolute overlay anchored bottom-left over the video */}
-      <div className="relative z-20 bg-[#0a0a0a] lg:bg-transparent lg:absolute lg:inset-0 lg:h-full lg:flex lg:flex-col lg:justify-end">
-        <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 py-12 lg:py-0 lg:pb-20">
+      <div className="relative z-20 bg-[#0a0a0a] lg:bg-transparent lg:absolute lg:inset-0 lg:h-full lg:flex lg:flex-col lg:justify-end lg:pointer-events-none">
+        <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 py-12 lg:py-0 lg:pb-20 lg:pointer-events-auto">
           <div className="max-w-2xl">
             <div className="eyebrow text-[11px] font-bold tracking-[0.28em] uppercase text-accent-2 mb-4 lg:mb-5 overflow-hidden">
               <motion.span
